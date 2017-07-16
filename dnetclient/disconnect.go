@@ -3,9 +3,10 @@ package dnetclient
 import (
 	"errors"
 
-	"github.com/pp2p/paranoid/pfsd/globals"
-	pb "github.com/pp2p/paranoid/proto/discoverynetwork"
 	"golang.org/x/net/context"
+
+	pb "github.com/pp2p/paranoid/proto/discoverynetwork"
+	"github.com/pp2p/pfsd/globals"
 )
 
 // Disconnect function used to disconnect from the server

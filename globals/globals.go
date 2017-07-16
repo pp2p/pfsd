@@ -11,10 +11,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/pp2p/paranoid/logger"
-	"github.com/pp2p/paranoid/pfsd/keyman"
-	"github.com/pp2p/paranoid/raft"
 	"golang.org/x/crypto/bcrypt"
+
+	"github.com/pp2p/paranoid/logger"
+	"github.com/pp2p/paranoid/raft"
+	"github.com/pp2p/pfsd/keyman"
 )
 
 const (

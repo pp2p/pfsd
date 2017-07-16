@@ -4,12 +4,12 @@ import (
 	"os"
 	"time"
 
-	"github.com/pp2p/paranoid/libpfs/commands"
-	"github.com/pp2p/paranoid/libpfs/returncodes"
-	"github.com/pp2p/paranoid/pfsd/globals"
-
 	"github.com/hanwen/go-fuse/fuse"
 	"github.com/hanwen/go-fuse/fuse/nodefs"
+
+	"github.com/pp2p/paranoid/libpfs/commands"
+	"github.com/pp2p/paranoid/libpfs/returncodes"
+	"github.com/pp2p/pfsd/globals"
 )
 
 //ParanoidFile is a custom file struct with read and write functions

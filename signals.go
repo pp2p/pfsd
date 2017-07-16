@@ -1,13 +1,15 @@
 package main
 
 import (
-	"github.com/kardianos/osext"
-	"github.com/pp2p/paranoid/pfsd/globals"
-	"github.com/pp2p/paranoid/pfsd/upnp"
 	"os"
 	"os/signal"
 	"path"
 	"syscall"
+
+	"github.com/kardianos/osext"
+	log "github.com/pp2p/paranoid/logger"
+	"github.com/pp2p/pfsd/globals"
+	"github.com/pp2p/pfsd/upnp"
 )
 
 func stopAllServices() {

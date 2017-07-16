@@ -3,17 +3,18 @@
 package keystatetest
 
 import (
-	"github.com/pp2p/paranoid/libpfs/commands"
-	"github.com/pp2p/paranoid/logger"
-	"github.com/pp2p/paranoid/pfsd/keyman"
-	pb "github.com/pp2p/paranoid/proto/raft"
-	"github.com/pp2p/paranoid/raft"
-	"github.com/pp2p/paranoid/raft/raftlog"
-	"github.com/pp2p/paranoid/raft/rafttestutil"
 	"os"
 	"path"
 	"reflect"
 	"testing"
+
+	"github.com/pp2p/paranoid/libpfs/commands"
+	"github.com/pp2p/paranoid/logger"
+	pb "github.com/pp2p/paranoid/proto/raft"
+	"github.com/pp2p/paranoid/raft"
+	"github.com/pp2p/paranoid/raft/raftlog"
+	"github.com/pp2p/paranoid/raft/rafttestutil"
+	"github.com/pp2p/pfsd/keyman"
 )
 
 func TestMain(m *testing.M) {

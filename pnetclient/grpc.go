@@ -4,10 +4,11 @@ import (
 	"crypto/tls"
 	"time"
 
-	"github.com/pp2p/paranoid/logger"
-	"github.com/pp2p/paranoid/pfsd/globals"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
+
+	"github.com/pp2p/paranoid/logger"
+	"github.com/pp2p/pfsd/globals"
 )
 
 // Log used by the pnetclient

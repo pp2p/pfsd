@@ -3,9 +3,10 @@
 package keyman
 
 import (
-	"github.com/pp2p/paranoid/logger"
 	"os"
 	"testing"
+
+	"github.com/pp2p/paranoid/logger"
 )
 
 func TestMain(m *testing.M) {

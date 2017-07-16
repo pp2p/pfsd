@@ -5,10 +5,11 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/pp2p/paranoid/pfsd/globals"
-	"github.com/pp2p/paranoid/pfsd/keyman"
-	pb "github.com/pp2p/paranoid/proto/paranoidnetwork"
 	"golang.org/x/net/context"
+
+	pb "github.com/pp2p/paranoid/proto/paranoidnetwork"
+	"github.com/pp2p/pfsd/globals"
+	"github.com/pp2p/pfsd/keyman"
 )
 
 // RequestKeyPiece from a node based on its UUID

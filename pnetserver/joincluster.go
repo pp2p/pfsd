@@ -4,11 +4,12 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/pp2p/paranoid/pfsd/globals"
-	pb "github.com/pp2p/paranoid/proto/paranoidnetwork"
-	"github.com/pp2p/paranoid/raft"
 	"golang.org/x/crypto/bcrypt"
 	"golang.org/x/net/context"
+
+	pb "github.com/pp2p/paranoid/proto/paranoidnetwork"
+	"github.com/pp2p/paranoid/raft"
+	"github.com/pp2p/pfsd/globals"
 )
 
 // JoinCluster receives requests from nodes asking to join raft cluster

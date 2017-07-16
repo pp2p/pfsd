@@ -14,23 +14,24 @@ import (
 	"sync"
 	"time"
 
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials"
+
 	"github.com/pp2p/paranoid/libpfs/commands"
 	"github.com/pp2p/paranoid/libpfs/encryption"
-	"github.com/pp2p/paranoid/logger"
-	"github.com/pp2p/paranoid/pfsd/dnetclient"
-	"github.com/pp2p/paranoid/pfsd/globals"
-	"github.com/pp2p/paranoid/pfsd/intercom"
-	"github.com/pp2p/paranoid/pfsd/keyman"
-	"github.com/pp2p/paranoid/pfsd/pfi"
-	"github.com/pp2p/paranoid/pfsd/pnetclient"
-	"github.com/pp2p/paranoid/pfsd/pnetserver"
-	"github.com/pp2p/paranoid/pfsd/upnp"
+	log "github.com/pp2p/paranoid/logger"
 	pb "github.com/pp2p/paranoid/proto/paranoidnetwork"
 	rpb "github.com/pp2p/paranoid/proto/raft"
 	"github.com/pp2p/paranoid/raft"
 	"github.com/pp2p/paranoid/raft/raftlog"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials"
+	"github.com/pp2p/pfsd/dnetclient"
+	"github.com/pp2p/pfsd/globals"
+	"github.com/pp2p/pfsd/intercom"
+	"github.com/pp2p/pfsd/keyman"
+	"github.com/pp2p/pfsd/pfi"
+	"github.com/pp2p/pfsd/pnetclient"
+	"github.com/pp2p/pfsd/pnetserver"
+	"github.com/pp2p/pfsd/upnp"
 )
 
 const (
@@ -43,7 +44,6 @@ const (
 
 var (
 	srv *grpc.Server
-	log *logger.ParanoidLogger
 )
 
 // Flags
@@ -330,29 +330,30 @@ func startRPCServer(lis *net.Listener, password string) {
 func setupLogging() {
 	logDir := path.Join(globals.ParanoidDir, "meta", "logs")
 
-	log = logger.New("main", "pfsd", logDir)
-	dnetclient.Log = logger.New("dnetclient", "pfsd", logDir)
-	pnetclient.Log = logger.New("pnetclient", "pfsd", logDir)
-	pnetserver.Log = logger.New("pnetserver", "pfsd", logDir)
-	upnp.Log = logger.New("upnp", "pfsd", logDir)
-	keyman.Log = logger.New("keyman", "pfsd", logDir)
-	raft.Log = logger.New("raft", "pfsd", logDir)
-	raftlog.Log = logger.New("raftlog", "pfsd", logDir)
-	commands.Log = logger.New("libpfs", "pfsd", logDir)
-	intercom.Log = logger.New("intercom", "pfsd", logDir)
-	globals.Log = logger.New("globals", "pfsd", logDir)
+	log.SetLogDirectory(logDir)
 
-	log.SetOutput(logger.STDERR | logger.LOGFILE)
-	dnetclient.Log.SetOutput(logger.STDERR | logger.LOGFILE)
-	pnetclient.Log.SetOutput(logger.STDERR | logger.LOGFILE)
-	pnetserver.Log.SetOutput(logger.STDERR | logger.LOGFILE)
-	upnp.Log.SetOutput(logger.STDERR | logger.LOGFILE)
-	keyman.Log.SetOutput(logger.STDERR | logger.LOGFILE)
-	raft.Log.SetOutput(logger.STDERR | logger.LOGFILE)
-	raftlog.Log.SetOutput(logger.STDERR | logger.LOGFILE)
-	commands.Log.SetOutput(logger.STDERR | logger.LOGFILE)
-	intercom.Log.SetOutput(logger.STDERR | logger.LOGFILE)
-	globals.Log.SetOutput(logger.STDERR | logger.LOGFILE)
+	dnetclient.Log = log.New("dnetclient", "pfsd", logDir)
+	pnetclient.Log = log.New("pnetclient", "pfsd", logDir)
+	pnetserver.Log = log.New("pnetserver", "pfsd", logDir)
+	upnp.Log = log.New("upnp", "pfsd", logDir)
+	keyman.Log = log.New("keyman", "pfsd", logDir)
+	raft.Log = log.New("raft", "pfsd", logDir)
+	raftlog.Log = log.New("raftlog", "pfsd", logDir)
+	commands.Log = log.New("libpfs", "pfsd", logDir)
+	intercom.Log = log.New("intercom", "pfsd", logDir)
+	globals.Log = log.New("globals", "pfsd", logDir)
+
+	log.SetOutput(log.STDERR | log.LOGFILE)
+	dnetclient.Log.SetOutput(log.STDERR | log.LOGFILE)
+	pnetclient.Log.SetOutput(log.STDERR | log.LOGFILE)
+	pnetserver.Log.SetOutput(log.STDERR | log.LOGFILE)
+	upnp.Log.SetOutput(log.STDERR | log.LOGFILE)
+	keyman.Log.SetOutput(log.STDERR | log.LOGFILE)
+	raft.Log.SetOutput(log.STDERR | log.LOGFILE)
+	raftlog.Log.SetOutput(log.STDERR | log.LOGFILE)
+	commands.Log.SetOutput(log.STDERR | log.LOGFILE)
+	intercom.Log.SetOutput(log.STDERR | log.LOGFILE)
+	globals.Log.SetOutput(log.STDERR | log.LOGFILE)
 
 }
 

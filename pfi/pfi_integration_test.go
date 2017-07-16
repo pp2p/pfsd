@@ -3,15 +3,17 @@
 package pfi
 
 import (
-	"github.com/hanwen/go-fuse/fuse"
-	"github.com/hanwen/go-fuse/fuse/pathfs"
-	"github.com/pp2p/paranoid/libpfs/commands"
-	"github.com/pp2p/paranoid/logger"
-	"github.com/pp2p/paranoid/pfsd/globals"
 	"os"
 	"path"
 	"testing"
 	"time"
+
+	"github.com/hanwen/go-fuse/fuse"
+	"github.com/hanwen/go-fuse/fuse/pathfs"
+
+	"github.com/pp2p/paranoid/libpfs/commands"
+	"github.com/pp2p/paranoid/logger"
+	"github.com/pp2p/pfsd/globals"
 )
 
 func createTestDir(t *testing.T, name string) {

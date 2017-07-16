@@ -8,9 +8,10 @@ import (
 	"time"
 
 	"github.com/pp2p/paranoid/libpfs/encryption"
-	"github.com/pp2p/paranoid/pfsd/globals"
-	"github.com/pp2p/paranoid/pfsd/keyman"
-	"github.com/pp2p/paranoid/pfsd/pnetclient"
+	log "github.com/pp2p/paranoid/logger"
+	"github.com/pp2p/pfsd/globals"
+	"github.com/pp2p/pfsd/keyman"
+	"github.com/pp2p/pfsd/pnetclient"
 )
 
 const unlockQueryInterval time.Duration = time.Second * 10
@@ -126,7 +127,7 @@ func LoadPieces() {
 	if err != nil {
 		// If the file doesn't exist, ignore it, because it could just be the first run.
 		if os.IsNotExist(err) {
-			log.Debugf("KeyPiece GOB file %s does not exist.", piecePath)
+			log.V(1).Infof("KeyPiece GOB file %s does not exist.", piecePath)
 			return
 		}
 		log.Fatalf("Unable to open %s for reading pieces: %s", piecePath, file)
